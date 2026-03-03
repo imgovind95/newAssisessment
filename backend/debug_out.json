@@ -1,0 +1,16 @@
+{
+  "1212121212": {
+    "phone_number": "1212121212",
+    "label": "Fraud",
+    "confidence": 100.0,
+    "risk_level": "High",
+    "recommendation": "Critical: High risk of financial fraud. Do not answer."
+  },
+  "+18005551234": {
+    "phone_number": "+18005551234",
+    "label": "Safe",
+    "confidence": 95.0,
+    "risk_level": "Low",
+    "recommendation": "Number appears safe. Standard caution advised."
+  }
+}

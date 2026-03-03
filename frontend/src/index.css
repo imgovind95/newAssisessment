@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-dark: #0f172a;
+  /* Deep Slate */
+  --color-cyber-gray: #1e293b;
+  --color-cyber-blue: #3b82f6;
+  /* Modern Blue */
+  --color-cyber-neon: #60a5fa;
+  --color-cyber-fraud: #ef4444;
+  /* Crisp Red */
+  --color-cyber-spam: #f59e0b;
+  /* Amber */
+  --color-cyber-safe: #10b981;
+  /* Emerald Green */
+
+  --shadow-neon: 0 4px 6px -1px rgba(59, 130, 246, 0.2), 0 2px 4px -2px rgba(59, 130, 246, 0.1);
+  --shadow-fraud: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
+
+  --background-image-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+}
+
+:root {
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer !important;
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-cyber-gray/40 backdrop-blur-xl border border-white/5 rounded-2xl p-8 shadow-lg transition-all duration-300;
+  }
+
+  .cyber-button {
+    @apply px-6 py-2.5 rounded-lg font-medium transition-all duration-200 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .cyber-button-primary {
+    @apply bg-cyber-blue text-white hover:bg-cyber-neon shadow-sm hover:shadow-neon hover:-translate-y-0.5;
+  }
+
+  .cyber-input {
+    @apply w-full bg-cyber-dark/60 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-cyber-blue focus:ring-2 focus:ring-cyber-blue/20 transition-all duration-200 text-sm;
+  }
+
+  .glow-red {
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+  }
+
+  .glow-green {
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  }
+}
+
+/* Animations */
+@keyframes neonPulse {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: neonPulse 3s infinite;
+}
