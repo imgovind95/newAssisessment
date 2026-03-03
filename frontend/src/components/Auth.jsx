@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { API_BASE_URL } from '../config';
 
 const Auth = ({ onLogin }) => {
     const [isLogin, setIsLogin] = useState(true);
@@ -15,7 +16,7 @@ const Auth = ({ onLogin }) => {
                 formDataUrlEncoded.append('username', formData.username);
                 formDataUrlEncoded.append('password', formData.password);
 
-                const res = await fetch('http://localhost:8001/api/v1/auth/login', {
+                const res = await fetch(`${API_BASE_URL}/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -41,7 +42,7 @@ const Auth = ({ onLogin }) => {
                 toast.success('Access Granted');
                 onLogin(mockUser);
             } else {
-                const res = await fetch('http://localhost:8001/api/v1/auth/register', {
+                const res = await fetch(`${API_BASE_URL}/auth/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

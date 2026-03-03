@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { History, AlertTriangle, ShieldCheck, ShieldAlert, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Filter, ShieldCheck, ShieldAlert, AlertTriangle, ChevronLeft, ChevronRight, Clock, Hash } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 import toast from 'react-hot-toast';
 
 export default function HistoryPanel({ user }) {
@@ -15,7 +16,7 @@ export default function HistoryPanel({ user }) {
     const fetchHistory = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:8001/api/v1/history/?skip=${page * limit}&limit=${limit}`, {
+            const response = await fetch(`${API_BASE_URL}/history/?skip=${page * limit}&limit=${limit}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

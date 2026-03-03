@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { UploadCloud, FileDown, ShieldCheck, ShieldAlert, AlertTriangle } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 const Detector = ({ user, setView }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -23,7 +24,7 @@ const Detector = ({ user, setView }) => {
 
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:8001/api/v1/detector/check', {
+            const res = await fetch(`${API_BASE_URL}/detector/check`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +68,7 @@ const Detector = ({ user, setView }) => {
         formData.append('file', file);
 
         try {
-            const res = await fetch('http://localhost:8001/api/v1/detector/upload', {
+            const res = await fetch(`${API_BASE_URL}/detector/upload`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -125,7 +126,7 @@ const Detector = ({ user, setView }) => {
         }
 
         try {
-            const res = await fetch('http://localhost:8001/api/v1/detector/report', {
+            const res = await fetch(`${API_BASE_URL}/detector/report`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

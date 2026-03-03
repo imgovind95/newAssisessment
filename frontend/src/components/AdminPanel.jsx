@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LineChart, Line } from 'recharts';
+import { API_BASE_URL } from '../config';
 const AdminPanel = () => {
     const [stats, setStats] = useState(null);
     const [errorMsg, setErrorMsg] = useState('');
@@ -7,7 +8,7 @@ const AdminPanel = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const res = await fetch('http://localhost:8001/api/v1/admin/analytics');
+                const res = await fetch(`${API_BASE_URL}/admin/analytics`);
                 if (!res.ok) throw new Error('API Error fetching admin stats');
                 const data = await res.json();
                 setStats({
