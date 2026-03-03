@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Filter, ShieldCheck, ShieldAlert, AlertTriangle, ChevronLeft, ChevronRight, Clock, Hash } from 'lucide-react';
+import { Search, Filter, ShieldCheck, ShieldAlert, AlertTriangle, ChevronLeft, ChevronRight, Clock, Hash, History } from 'lucide-react';
 import { API_BASE_URL } from '../config';
 import toast from 'react-hot-toast';
 
